@@ -1,37 +1,13 @@
-## Welcome to GitHub Pages
+# How to Fix Insert Pandas Dataframe from Db2 issue on Cloud Pak for Data Notebook
 
-You can use the [editor on GitHub](https://github.com/manojjahgirdar/db2-on-cpd-notebook/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Issue
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+There is a recent issue with Cloud Pak for Data's Jupyter Notebook. When you try to insert Pandas Dataframe from a DB2 connection, it adds the code snippet however, running the code snippet will give an error.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```python
+ProgrammingError: ibm_db_dbi::ProgrammingError: [IBM][CLI Driver] SQL10013N  The specified library "GSKit Error: 2" could not be loaded.  SQLSTATE=42724 SQLCODE=-10013
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Solution/Workaround
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/manojjahgirdar/db2-on-cpd-notebook/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+This issue is caused because the SSL Certificate is base 64 encoded. You will have to decode the SSL Certificate in order to authenticate with Db2.
