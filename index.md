@@ -1,4 +1,4 @@
-# How to Fix Insert Pandas Dataframe from Db2 issue on Cloud Pak for Data Notebook
+# How to Fix: Insert Pandas DataFrame from Db2 issue on Cloud Pak for Data Notebook
 
 ## Issue
 
