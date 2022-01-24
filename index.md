@@ -20,21 +20,23 @@ You will have to decode the SSL Certificate in order to authenticate with Db2.
 
 - You can decode the base64 encoded string in just 2 steps:
   - Import `base64` and copy the base64 encoded ssl certificate into a variable
-  ```python
-  import base64
-  certificate = <Your ssl certificate>
-  ```
-  ![copycertificate](https://user-images.githubusercontent.com/52746337/150771080-89b13cae-0054-4cb9-8649-283605e48b5d.gif)
+  
+    ```python
+    import base64
+    certificate = <Your ssl certificate>
+    ```
+    ![copycertificate](https://user-images.githubusercontent.com/52746337/150771080-89b13cae-0054-4cb9-8649-283605e48b5d.gif)
   - Decode base64 string into `bytes` and decode the bytes into `ascii`. Write the decoded ssl certificate to the file.
-  ```python
-  ssl_certificate_bytes = base64.b64decode(certificate)
-  ssl_certificate = ssl_certificate_bytes.decode('ascii')
-  
-  ...
-  
-  f.write(ssl_certificate)
-  ```
-  ![sslcert](https://user-images.githubusercontent.com/52746337/150771778-6e12619b-4b0a-4ea3-8ba5-30af117c05c9.gif)
+    
+    ```python
+    ssl_certificate_bytes = base64.b64decode(certificate)
+    ssl_certificate = ssl_certificate_bytes.decode('ascii')
+    
+    ...
+    
+    f.write(ssl_certificate)
+    ```
+    ![sslcert](https://user-images.githubusercontent.com/52746337/150771778-6e12619b-4b0a-4ea3-8ba5-30af117c05c9.gif)
 
 Once you have incorporated these changes you can run the code block and the Pandas DataFrame will be loaded with the Db2 table.
 
